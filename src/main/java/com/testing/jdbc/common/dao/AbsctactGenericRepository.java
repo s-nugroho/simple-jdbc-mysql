@@ -4,6 +4,7 @@ import com.testing.jdbc.entity.EntityAware;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Hibernate;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.stereotype.Component;
@@ -38,7 +39,7 @@ public abstract class AbsctactGenericRepository<E extends EntityAware> implement
     }
 
     @Override
-    public List<E> find(E entity, int offset, int limit) {
+    public List<E> find(E param, int offset, int limit) {
         CriteriaQuery<E> query = entityManager.getCriteriaBuilder().createQuery(type);
         query.select(query.from(type));
 

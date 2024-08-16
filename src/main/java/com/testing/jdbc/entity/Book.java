@@ -3,6 +3,9 @@ package com.testing.jdbc.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
+@Entity
 @Table(name = "book")
 @Data
 @AllArgsConstructor
@@ -16,7 +19,8 @@ public class Book implements EntityAware {
     @Column
     private String title;
 
-    private String author;
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BookAuthor> authors;
 
     @Column(name = "release_date")
     private Long releaseDate;

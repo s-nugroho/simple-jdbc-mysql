@@ -8,7 +8,7 @@ public interface BaseRepository<E> {
 
     E findById(Long id);
 
-    List<E> find(E entity, int offset, int limit);
+    List<E> find(E param, int offset, int limit);
     
     E update(E entity);
 
