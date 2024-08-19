@@ -63,6 +63,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+		<finalName>simple-jdbc</finalName>
 	</build>
 
 </project>
